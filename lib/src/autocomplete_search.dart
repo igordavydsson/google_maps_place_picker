@@ -23,6 +23,7 @@ class AutoCompleteSearch extends StatefulWidget {
       this.debounceMilliseconds,
       this.onSearchFailed,
       required this.searchBarController,
+      this.overlayOffset = 0,
       this.autocompleteOffset,
       this.autocompleteRadius,
       this.autocompleteLanguage,
@@ -45,6 +46,7 @@ class AutoCompleteSearch extends StatefulWidget {
   final ValueChanged<Prediction> onPicked;
   final ValueChanged<String>? onSearchFailed;
   final SearchBarController searchBarController;
+  final double overlayOffset;
   final num? autocompleteOffset;
   final num? autocompleteRadius;
   final String? autocompleteLanguage;
@@ -222,7 +224,7 @@ class AutoCompleteSearchState extends State<AutoCompleteSearch> {
 
     overlayEntry = OverlayEntry(
       builder: (context) => Positioned(
-        top: appBarRenderBox!.size.height,
+        top: appBarRenderBox!.size.height + widget.overlayOffset,
         left: screenWidth * 0.025,
         right: screenWidth * 0.025,
         child: Material(

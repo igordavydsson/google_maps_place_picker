@@ -45,6 +45,7 @@ class PlacePicker extends StatefulWidget {
     this.myLocationButtonCooldown = 10,
     this.usePinPointingSearch = true,
     this.usePlaceDetailSearch = false,
+    this.overlayOffset = 0,
     this.autocompleteOffset,
     this.autocompleteRadius,
     this.autocompleteLanguage,
@@ -89,6 +90,7 @@ class PlacePicker extends StatefulWidget {
   final bool usePinPointingSearch;
   final bool usePlaceDetailSearch;
 
+  final double overlayOffset;
   final num? autocompleteOffset;
   final num? autocompleteRadius;
   final String? autocompleteLanguage;
@@ -297,6 +299,7 @@ class _PlacePickerState extends State<PlacePicker> {
                   widget.onAutoCompleteFailed!(status);
                 }
               },
+              overlayOffset: widget.overlayOffset,
               autocompleteOffset: widget.autocompleteOffset,
               autocompleteRadius: widget.autocompleteRadius,
               autocompleteLanguage: widget.autocompleteLanguage,
